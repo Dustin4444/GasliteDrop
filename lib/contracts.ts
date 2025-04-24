@@ -42,7 +42,7 @@ export const airdrop1155ContractAddress = {
   [baseSepolia.id]: "0x1155D79afC98dad97Ee4b0c747398DcF5b631155",
   [bsc.id]: "0x53d097F8f78Ada73085fAF3A4c36B9Ec58E7E172",
   [sanko.id]: "0xeCC9a57543bFDe6BBc01420680Fc4a1BC51B6D1A",
-  [abstract.id]: "", // not deployed yet!
+  [abstract.id]: "0xa5a2e5A4aa8Fd0CB021c00fc62283F337c175d07",
   [blast.id]: "", // not deployed yet!
   [degen.id]: "", // not deployed yet!
   [zora.id]: "", // not deployed yet!
