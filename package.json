@@ -10,6 +10,10 @@
     "wagmi": "wagmi generate",
     "pretty": "npx prettier . --write"
   },
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "packageManager": "pnpm@9.14.2",
   "dependencies": {
     "@abstract-foundation/agw-client": "^1.4.2",
     "@abstract-foundation/agw-react": "^1.5.4",
