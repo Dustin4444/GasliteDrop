@@ -196,13 +196,14 @@ export const useTokenDrop = ({
       setIsCheckingBalances(true);
       try {
         const distinctIds = Object.keys(keyBy(validRecipients, "tokenId"));
+
         const results = await Promise.all(
           distinctIds.map(async (tid) => {
-            const bal = await readContract({
-              address: contractAddress!,
+            const bal = await readContract(config, {
+              address: contractAddress! as `0x${string}`,
               abi: erc1155Abi,
               functionName: "balanceOf",
-              args: [address!, BigInt(tid)],
+              args: [address! as `0x${string}`, BigInt(tid)],
               chainId,
             });
             return { tokenId: tid, balanceOf: bal };
@@ -223,6 +224,7 @@ export const useTokenDrop = ({
           const have = balances[tid] || 0n;
           return have < needed;
         });
+        console.log({ balances, requiredMap, anyShort });
         setInsufficientFunds(anyShort);
       } catch {
         toast.error("Error checking ERC1155 balances");
@@ -232,12 +234,11 @@ export const useTokenDrop = ({
     };
     checkERC1155();
   }, [
-    token,
     requiredAllowance,
     address,
     chainId,
     contractAddress,
-    validRecipients,
+    JSON.stringify(validRecipients),
   ]);
 
   const isBatchEnabled = isAGW;
